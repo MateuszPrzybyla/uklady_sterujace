@@ -41,9 +41,9 @@ ISR(TIMER0_COMP_vect) {
 	PORTA = cyfra[cyfry[2]];
 	PORTB = 0x0d; // wlaczenie drugiej cyfry (zgaszenie pozostalych)
 	_delay_ms(1);
-	PORTA = cyfra[cyfry[3]];
-	PORTB = 0x0e | (1 << PB7); // wlaczenie pierwszej cyfry (zgaszenie pozostalych), na zajeciach nie zrobilem kropki miedzy pierwsza a druga cyfra, 
-								// ale jesli mialbym ja robic to zrobilbym to tak (PB7 przy zalozeniu ze kropka jest podpieta do pinu PB7)
+	PORTA = cyfra[cyfry[3]] | (1 << PB7); // na zajeciach nie zrobilem kropki miedzy pierwsza a druga cyfra, 
+							 // ale jesli mialbym ja robic to zrobilbym to tak (PB7 przy zalozeniu ze kropka jest podpieta do pinu PB7)
+	PORTB = 0x0e; // wlaczenie pierwszej cyfry (zgaszenie pozostalych) 
 	_delay_ms(1); 
 }
 
